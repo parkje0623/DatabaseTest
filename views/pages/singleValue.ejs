@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  </head>
+  <style>
+    h2 {
+      font-size: 38px;
+      position: absolute;
+      left: 50px;
+      top: 10px;
+    }
+    table {
+      background-color: #98FF98;
+      font-size: 38px;
+      position: absolute;
+      left: 50px;
+      top: 100px;
+    }
+    table, thead, tbody, th {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 10px;
+    }
+    tbody {
+      color: #4169E1;
+      font-size: 30px;
+    }
+    tbody > tr:hover {
+      background-color: yellow;
+      color: red;
+    }
+    .button {
+      background-color: pink;
+      font-size: 24px;
+      width: 300px;
+      height: 100px;
+      position: absolute;
+      left: 50px;
+      top: 400px;
+    }
+    .button:hover {
+      background-color: yellow;
+    }
+  </style>
+  <body>
+    <h2>Database Results</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Size</th>
+            <th>Height</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% rows.forEach(function(attr) { %>
+            <tr onclick="fake2()">
+              <th><%= attr.name %></th>
+              <th><%= attr.size %></th>
+              <th><%= attr.height %></th>
+              <th><%= attr.type %></th>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+
+      <button onclick="location.href='./person.html'" class="button">RETURN</button>
+  </body>
+  <script>
+    function fake2() {
+      alert("You fell for another FAKE click :)");
+    }
+  </script>
+</html>

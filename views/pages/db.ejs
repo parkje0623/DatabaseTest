@@ -1,23 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <% include ../partials/header.ejs %>
 </head>
+<style>
+  h2 {
+    font-size: 38px;
+    position: absolute;
+    left: 50px;
+    top: 10px;
+  }
+  table {
+    background-color: #98FF98;
+    position: absolute;
+    left: 50px;
+    top: 100px;
+  }
+  table, thead, tbody, th {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+  }
+  thead {
+    border: 1px solid black;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  tbody {
+    color: blue;
+    font-size: 20px;
+  }
+  .button {
+    background-color: pink;
+    font-size: 24px;
+    width: 300px;
+    height: 100px;
+    position: absolute;
+    left: 500px;
+    top: 200px;
+  }
+  .button:hover {
+    background-color: yellow;
+  }
+</style>
 
 <body>
-
-<% include ../partials/nav.ejs %>
-
 <div class="container">
 <h2>Database Results</h2>
-
-<ul>
-    <% results.forEach(function(r) { %>
-        <li><%= r.id %> - <%= r.name %></li>
-    <% }); %>
-</ul>
-
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Size</th>
+        <th>Height</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% rows.forEach(function(attr) { %>
+        <tr>
+          <th><%= attr.name %></th>
+          <th><%= attr.size %></th>
+          <th><%= attr.height %></th>
+          <th><%= attr.type %></th>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
 </div>
-
+  <button onclick="location.href='./person.html'" class="button">RETURN</button>
 </body>
 </html>

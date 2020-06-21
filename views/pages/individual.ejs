@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  </head>
+  <style>
+    h2 {
+      font-size: 38px;
+      position: absolute;
+      left: 50px;
+      top: 10px;
+    }
+    table {
+      background-color: #98FF98;
+      position: absolute;
+      left: 50px;
+      top: 100px;
+    }
+    table, thead, tbody, th {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 10px;
+    }
+    thead {
+      border: 1px solid black;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    tbody {
+      color: #4169E1;
+      font-size: 20px;
+    }
+    tbody > tr:hover {
+      background-color: yellow;
+      color: red;
+    }
+    .button {
+      background-color: pink;
+      font-size: 24px;
+      width: 300px;
+      height: 100px;
+      position: absolute;
+      left: 280px;
+      top: 682px;
+    }
+    .button:hover {
+      background-color: yellow;
+    }
+    input {
+      height: 60px;
+      font-size: 20px;
+      padding: 2px;
+      position: absolute;
+      left: 280px;
+      top: 432px;
+    }
+    #enterT {
+      left: 540px;
+    }
+    #entered {
+      background-color: #98FF98;
+      color: #4169E1;
+      position: absolute;
+      left: 280px;
+      top: 502px;
+    }
+    #entered:hover {
+      background-color: yellow;
+      color: red;
+    }
+  </style>
+  <form>
+  <body>
+    <h2>Database Results</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% rows.forEach(function(attr) { %>
+            <tr>
+              <th id="clickName" onclick="fake()"><%= attr.name %></th>
+              <th id="clickType" onclick="fake()"><%= attr.type %></th>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+
+      <input type='text' id='enterN' name="EnterName" value="" placeholder="Enter Name Here">
+      <input type='text' id='enterT' name="EnterType" value="" placeholder="Enter Type Here">
+      <button formaction="/single" id="entered" formmethod="post" type="submit" class="button">VIEW</button>
+
+  </body>
+</form>
+  <button onclick="location.href='./person.html'" class="button">RETURN</button>
+  <script>
+    function fake() {
+      alert("Sorry, clicking don't do anything. Hovering option was FAKE :)");
+    }
+  </script>
+</html>

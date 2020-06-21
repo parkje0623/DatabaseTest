@@ -1,0 +1,86 @@
+h1 {
+  font-weight: bold;
+}
+
+h2 {
+  color: red;
+}
+
+h3 {
+  position: absolute;
+  left: 180px;
+  top: 130px;
+}
+
+.button {
+  font-size: 20px;
+  width: 150px;
+  height: 84px;
+  margin: 10px 10px;
+}
+
+input {
+  height: 40px;
+  font-size: 20px;
+  padding: 2px;
+}
+
+#name {
+  position: absolute;
+  left: 180px;
+  top: 235px;
+}
+
+#size {
+  position: absolute;
+  left: 440px;
+  top: 235px;
+}
+
+#height {
+  position: absolute;
+  left: 700px;
+  top: 235px;
+}
+
+#type {
+  position: absolute;
+  left: 960px;
+  top: 235px;
+}
+
+#Dname {
+  position: absolute;
+  left: 180px;
+  top: 443px;
+}
+
+#Dtype {
+  position: absolute;
+  left: 440px;
+  top: 443px;
+}
+
+#Uname {
+  position: absolute;
+  left: 180px;
+  top: 340px;
+}
+
+#Utype {
+  position: absolute;
+  left: 440px;
+  top: 340px;
+}
+
+#UAttr {
+  position: absolute;
+  left: 700px;
+  top: 340px;
+}
+
+#UNew {
+  position: absolute;
+  left: 960px;
+  top: 340px;
+}

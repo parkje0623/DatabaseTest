@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  </head>
+  <style>
+    div.absolute {
+      font-size: 24px;
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      width: 2500px;
+      height: 100px;
+    }
+    .button {
+      background-color: pink;
+      font-size: 24px;
+      width: 300px;
+      height: 100px;
+      position: absolute;
+      left: 50px;
+      top: 400px;
+    }
+    .button:hover {
+      background-color: yellow;
+    }
+  </style>
+  <body>
+    <div class="absolute">
+      Rule: <br>
+        - Add: name -> max. 10 characters, size and height -> numbers, type -> max. 3 characters. <br>
+        - Update: Updating Name and Type -> row wanting to change, Attribute type -> name of column, New value -> value you want to change to <br>
+        - Delete: Must enter both Name and type <br>
+        - Database: Shows the whole database collected <br>
+        - Individual: Allows you to choose single database to view <br><br>
+        - In the DATABASE, PRIMARY KEY is Union of 'NAME' and 'TYPE' <br>
+        - Due to PRIMARY KEY, You CANNOT enter values that BOTH 'NAME' and 'TYPE' already existing in the DATABASE <br>
+        - Entering wrong values in 'DELETE' and 'UPDATE' DO NOT make any changes <br>
+      <button onclick="location.href='./person.html'" class="button">RETURN</button>
+    </div>
+  </body>
+</html>

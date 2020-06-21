@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Person</title>
+    <link rel="stylesheet" href="./stylesheets/style.css">
+  </head>
+  <body>
+    <h1 id="title">Welcome to People DATABASE</h1>
+    <button onclick="location.href='./rule.html'" class="button">RULE</button>
+    <h3>Click RULE if Needed</h3>
+    <form>
+
+      <input type='text' id='name' name="Name" value="" placeholder="Enter Name">
+      <input type='number' id='size' name="Size" value="" placeholder="Enter Size">
+      <input type='number' id='height' name="Height" value="" placeholder="Enter Height">
+      <input type='text' id='type' name="Type" value="" placeholder="Enter Type">
+      <button formaction="/add" formmethod="post" type="submit" class="button">ADD</button> <br>
+
+      <input type='text' id='Uname' name="UName" value="" placeholder="Updating Name">
+      <input type='text' id='Utype' name="UType" value="" placeholder="Updating Type">
+      <input type='text' id='UAttr' name="UAttr" value="" placeholder="Enter Attribute Type">
+      <input type='text' id='UNew' name="UNew" value="" placeholder="Enter NEW Value">
+      <button formaction="/update" formmethod="post" type="submit" class="button">UPDATE</button> <br>
+
+      <input type='text' id='Dname' name="DName" value="" placeholder="Deleting Name">
+      <input type='text' id='Dtype' name="DType" value="" placeholder="Deleting Type">
+      <button formaction="/delete" formmethod="post" type="submit" class="button">DELETE</button> <br>
+
+      <button formaction="/database" class="button">DATABASE</button> <br>
+
+      <h2>If Want To View Database For Desired Individual Click The Button Below!</h2>
+      <button formaction="/individual" class="button">INDIVIDUAL</button> <br>
+    </form>
+    <script type="text/javascript" src="./script.js">
+    </script>
+  </body>
+</html>
