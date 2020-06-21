@@ -7,7 +7,8 @@ var util = require('util');
 const { Pool } = require('pg')
 var pool;
 pool = new Pool({
-  connectionString: 'postgres://postgres:cmpt276@localhost/people'
+  connectionString: process.env.DATABASE_URL
+  //'postgres://postgres:cmpt276@localhost/people'
   //When pushing to Heroku server, change connectionString to 'process.env.DATABASE_URL'
 })
 
