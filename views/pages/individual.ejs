@@ -15,7 +15,9 @@
       left: 50px;
       top: 100px;
     }
-    table, thead, tbody, th {
+    table, thead, tbody, th, td {
+      font-weight: bold;
+      text-align: center;
       border: 1px solid black;
       border-collapse: collapse;
       padding: 10px;
@@ -27,7 +29,7 @@
     }
     tbody {
       color: #4169E1;
-      font-size: 20px;
+      font-size: 24px;
     }
     tbody > tr:hover {
       background-color: yellow;
@@ -53,6 +55,13 @@
       left: 280px;
       top: 432px;
     }
+    h3 {
+      position: absolute;
+      left: 280px;
+      top: 232px;
+      width: 2500px;
+      height: 100px;
+    }
     #enterT {
       left: 540px;
     }
@@ -67,11 +76,16 @@
       background-color: yellow;
       color: red;
     }
+    div {
+      position: absolute;
+      left: 350px;
+      top: 150px;
+    }
   </style>
   <form>
   <body>
     <h2>Database Results</h2>
-      <table>
+      <table id="Ctype">
         <thead>
           <tr>
             <th>Name</th>
@@ -81,21 +95,67 @@
         <tbody>
           <% rows.forEach(function(attr) { %>
             <tr>
-              <th id="clickName" onclick="fake()"><%= attr.name %></th>
-              <th id="clickType" onclick="fake()"><%= attr.type %></th>
+              <td id="clickName" onclick="fake()"><%= attr.name %></td>
+              <td id="clickType" onclick="fake()"><%= attr.type %></td>
             </tr>
           <% }); %>
         </tbody>
       </table>
 
+      <h3>
+        Rule: <br>
+         - The font-size differs by whether the Type contains "S", "A", "B", "C" and any other letters. <br>
+               -> "S" = largest towards other letters (D to Z) which are the smallest. <br>
+         - The color differs by the starting letter of the name: <br>
+               -> "A to G" = Red; <br>
+               -> "H to N" = Blue; <br>
+               -> "O to Z" = Green; <br>
+       </h3>
       <input type='text' id='enterN' name="EnterName" value="" placeholder="Enter Name Here">
       <input type='text' id='enterT' name="EnterType" value="" placeholder="Enter Type Here">
       <button formaction="/single" id="entered" formmethod="post" type="submit" class="button">VIEW</button>
-
+      <div>
+      </div>
   </body>
 </form>
   <button onclick="location.href='./person.html'" class="button">RETURN</button>
   <script>
+      window.onload = function() {
+      var tagName = document.getElementById("Ctype").getElementsByTagName("td");;
+      for (var i = 1; i <= tagName.length; i+=2) {
+        var b = document.createElement('div' + i);
+
+        if (tagName[i].innerHTML.toUpperCase().startsWith("S")) {
+          b.innerHTML = tagName[i-1].innerHTML.fontsize(8);
+
+        } else if (tagName[i].innerHTML.toUpperCase().startsWith("A")) {
+          b.innerHTML = tagName[i-1].innerHTML.fontsize(6);
+
+        } else if (tagName[i].innerHTML.toUpperCase().startsWith("B")) {
+          b.innerHTML = tagName[i-1].innerHTML.fontsize(4);
+
+        } else if (tagName[i].innerHTML.toUpperCase().startsWith("C")) {
+          b.innerHTML = tagName[i-1].innerHTML.fontsize(2);
+
+        } else {
+          b.innerHTML = tagName[i-1].innerHTML.fontsize(1);
+        }
+
+        var first = "ABCDEFG";
+        var second = "HIJKLMN";
+        var last = "OPQRSTUVWXYZ";
+        if (first.includes(tagName[i-1].innerHTML.toUpperCase().charAt(0))) {
+          b.style.color="red";
+        } else if (second.includes(tagName[i-1].innerHTML.toUpperCase().charAt(0))) {
+          b.style.color="blue";
+        } else {
+          b.style.color="green";
+        }
+
+        document.getElementsByTagName('div')[0].appendChild(b);
+      }
+    };
+
     function fake() {
       alert("Sorry, clicking don't do anything. Hovering option was FAKE :)");
     }

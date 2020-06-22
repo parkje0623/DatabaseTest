@@ -7,7 +7,7 @@ var util = require('util');
 const { Pool } = require('pg')
 var pool;
 pool = new Pool({
-  connectionString: process.env.DATABASE_URL
+  connectionString: 'postgres://postgres:cmpt276@localhost/people'
   //'postgres://postgres:cmpt276@localhost/people'
   //When pushing to Heroku server, change connectionString to 'process.env.DATABASE_URL'
 })
@@ -25,7 +25,7 @@ express()
     var getPeopleQuery = 'SELECT * FROM person';
     pool.query(getPeopleQuery, (error, result) => {
       if (error)
-        res.end(error);
+        res.render('pages/error');
       var results = {'rows':result.rows};
       res.render('pages/db', results);
     })
@@ -35,7 +35,7 @@ express()
     var getPeopleQuery = 'SELECT name, type FROM person';
     pool.query(getPeopleQuery, (error, result) => {
       if (error)
-        res.end(error);
+        res.render('pages/error');
       var results = {'rows':result.rows};
       res.render('pages/individual', results);
     })
@@ -50,7 +50,7 @@ express()
     var addQuery = util.format(addPeopleQuery, addName, addSize, addHeight, addType);
     pool.query(addQuery, (error, result) => {
       if (error)
-        res.end(error);
+        res.render('pages/error');
       res.render('pages/return');
     });
   })
@@ -62,7 +62,7 @@ express()
     var deleteQuery = util.format(deletePeopleQuery, deletName, deleteType);
     pool.query(deleteQuery, (error, result) => {
       if (error)
-        res.end(error);
+        res.render('pages/error');
       res.render('pages/return');
     });
   })
@@ -76,7 +76,7 @@ express()
     var updateQuery = util.format(updatePeopleQuery, updatingAttr, newValue, updateName, updateType);
     pool.query(updateQuery, (error, result) => {
       if (error)
-        res.end(error);
+        res.render('pages/error');
       res.render('pages/return');
     });
   })
@@ -88,7 +88,7 @@ express()
     var getQuery = util.format(getPersonQuery, viewName, viewType);
     pool.query(getQuery, (error, result) => {
       if (error)
-        res.end(error);
+        res.render('pages/error');
       var results = {'rows':result.rows};
       res.render('pages/singleValue', results);
     });
